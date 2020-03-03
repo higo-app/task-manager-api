@@ -2,9 +2,11 @@
 
 module Api
   class TasksController < BaseController
+    acts_as_token_authentication_handler_for User
     before_action :find_task, only: %i[show update destroy toggle]
+
     def index
-      @tasks = Task.all
+      @tasks = current_user.tasks
     end
 
     def show; end

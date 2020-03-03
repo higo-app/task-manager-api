@@ -2,15 +2,18 @@
 
 module Api
   class ListsController < BaseController
+    acts_as_token_authentication_handler_for User
     before_action :find_list, only: %i[show update destroy]
+
     def index
-      @lists = List.all
+      @lists = current_user.lists
     end
 
     def show; end
 
     def create
       @list = List.new(list_params)
+      @list.user = current_user
       if @list.save
         render :show, status: :created
       else
