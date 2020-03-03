@@ -39,7 +39,7 @@ module Api
     private
 
     def list_params
-      params.permit(:title, :color)
+      params.permit(:title, :color, :icon)
     end
 
     def find_list
