@@ -13,6 +13,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'devise'
+gem 'pundit'
 gem 'simple_token_authentication'
 
 gem 'jbuilder', '~> 2.5'

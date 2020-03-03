@@ -2,10 +2,12 @@
 
 module Api
   class UsersController < BaseController
+    include Pundit
+
+    skip_after_action :verify_authorized
     def create
       @user = User.new user_params
       if @user.save
-        puts @user.inspect
         render :show, status: :created
       else
         render_error
@@ -13,6 +15,16 @@ module Api
     end
 
     def show; end
+
+    def token
+      puts user_params
+      @user = User.find_by(email: user_params[:email])
+      if @user
+        render :show, status: :ok
+      else
+        render_error
+      end
+    end
 
     private
 

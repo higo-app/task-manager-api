@@ -7,6 +7,7 @@ module Api
 
     def index
       @tasks = current_user.tasks
+      authorize @tasks
     end
 
     def show; end
@@ -14,6 +15,7 @@ module Api
     def create
       @task = Task.new task_params
       @task.list = List.find(task_params[:list_id])
+      authorize @task
       if @task.save
         render :show, status: :created
       else
@@ -50,6 +52,7 @@ module Api
 
     def find_task
       @task = Task.find(params[:id])
+      authorize @task
     end
 
     def render_error

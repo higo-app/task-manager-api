@@ -6,7 +6,8 @@ module Api
     before_action :find_list, only: %i[show update destroy]
 
     def index
-      @lists = current_user.lists
+      @lists = policy_scope(List)
+      authorize @lists
     end
 
     def show; end
@@ -14,6 +15,7 @@ module Api
     def create
       @list = List.new(list_params)
       @list.user = current_user
+      authorize @list
       if @list.save
         render :show, status: :created
       else
@@ -42,6 +44,7 @@ module Api
 
     def find_list
       @list = List.find(params[:id])
+      authorize @list
     end
 
     def render_error
