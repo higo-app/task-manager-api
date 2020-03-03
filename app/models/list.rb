@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class List < ApplicationRecord
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
   belongs_to :user
   validates :user, presence: true
   validates :title, presence: true
