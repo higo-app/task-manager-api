@@ -15,6 +15,7 @@ gem 'puma', '~> 3.11'
 gem 'devise'
 gem 'pundit'
 gem 'simple_token_authentication'
+gem 'rack-cors'
 
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
