@@ -14,6 +14,7 @@ module Api
 
     def create
       @list = List.new(list_params)
+      @list.metadata = params[:metadata] || {}
       @list.user = current_user
       authorize @list
       if @list.save

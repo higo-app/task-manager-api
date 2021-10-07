@@ -17,7 +17,6 @@ module Api
     def show; end
 
     def token
-      puts user_params
       @user = User.find_by(email: user_params[:email])
       if @user
         render :show, status: :ok

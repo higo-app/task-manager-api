@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_084516) do
+ActiveRecord::Schema.define(version: 2021_10_07_033120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_084516) do
     t.datetime "updated_at", null: false
     t.string "icon", default: "done_outline", null: false
     t.bigint "user_id"
+    t.json "metadata", default: {}
     t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_084516) do
     t.datetime "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "metadata", default: {}
     t.index ["list_id"], name: "index_tasks_on_list_id"
   end
 
