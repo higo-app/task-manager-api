@@ -14,7 +14,7 @@ module Api
 
     def create
       @task = Task.new task_params
-      puts task_params.inspect, @task.inspect
+      @task.metadata = params[:metadata] || {}
       @task.list = List.find(task_params[:list_id])
       authorize @task
       if @task.save
@@ -48,7 +48,7 @@ module Api
     private
 
     def task_params
-      params.permit(:title, :due_date, :note, :list_id)
+      params.permit(:title, :due_date, :note, :list_id, :metadata)
     end
 
     def find_task
