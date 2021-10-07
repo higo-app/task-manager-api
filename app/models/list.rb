@@ -6,5 +6,4 @@ class List < ApplicationRecord
   validates :user, presence: true
   validates :title, presence: true
   validates :title, uniqueness: true
-  validates :color, presence: true
 end

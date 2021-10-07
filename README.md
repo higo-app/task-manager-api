@@ -1,4 +1,7 @@
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 # Tasks API
+A lightweight REST-API to handle task manager clients.
 
 ##### Running the project locally
 

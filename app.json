@@ -1,0 +1,13 @@
+{
+  "name": "Task manager API",
+  "description": "A simple REST API for task managers",
+  "repository": "https://github.com/higo-app/task-manager-api",
+  "logo": "https://avatars.githubusercontent.com/u/81651172?s=96&v=4",
+  "keywords": [
+    "ror",
+    "ruby",
+    "rails",
+    "api",
+    "rest"
+  ]
+}
